@@ -1,0 +1,33 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+
+<head>
+      <meta charset="utf-8">
+      <Title>Ask A Question</Title>
+      <link rel="stylesheet" href="{% static 'style.css' %}">
+</head>
+
+<body>
+      <div class="content">
+            <h1>Ask here</h1>
+            <p>Type your question in the textbox below.</p>
+            <form class="" action="ask_question" method="post">
+                  {% csrf_token %}
+                  <input type="text" name="question_title" placeholder="Question Title" value="" autocomplete="off"
+                        value="" />
+                  <p />
+                  <textarea name="question_body" id="question_body" cols="80" rows="10"
+                        placeholder="Question Body"></textarea>
+                  <p />
+                  <input type="text" name="posted_by" placeholder="Name" value="" autocomplete="off" />
+                  <p />
+                  <input type="submit" name="Ask" value="Ask Question" />
+            </form>
+            {% if error %}
+            <p class="error">{{error}}</p>
+            {% endif %}
+      </div>
+</body>
+
+</html>
